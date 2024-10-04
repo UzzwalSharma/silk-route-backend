@@ -18,9 +18,10 @@ const resRoutes = require("./routes/resetpage");
 
 // CORS middleware
 app.use(cors({
-    origin: 'http://localhost:5173', // Allow requests from frontend
+    origin: 'https://silk-route-frontend.vercel.app', // Allow requests from frontend
     credentials: true,
 }));
+
 
 // Middlewares
 app.use(express.json()); // For parsing JSON

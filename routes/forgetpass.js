@@ -28,7 +28,7 @@ router.post("/forgot-password", async (req, res) => {
     user.resetPasswordExpires = tokenExpiration;
     await user.save();
 
-    const resetLink = `http://localhost:5173/reset-password/${resetToken}`;
+    const resetLink = `https://silk-route-backend.onrender.com/reset-password/${resetToken}`;
 
     await sendResetEmail(user.email, resetLink);
 
