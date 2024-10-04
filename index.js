@@ -17,15 +17,9 @@ const payment = require("./routes/checkout"); // Razorpay payment route
 const resRoutes = require("./routes/resetpage");
 
 // CORS middleware
-const allowedOrigins = [
-    'https://silkroute-frontend-ku55.vercel.app',
-    'https://silkroute-frontend-ku55-r7mjw8sjp-uzzwalsharmas-projects.vercel.app' // Add your new frontend URL here
-];
-
 app.use(cors({
-    origin: allowedOrigins, // Allow requests from specified origins
+    origin: 'http://localhost:5173', // Allow requests from frontend
     credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'DELETE'] // Allowed methods
 }));
 
 // Middlewares
