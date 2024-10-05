@@ -28,7 +28,7 @@ router.post("/forgot-password", async (req, res) => {
     user.resetPasswordExpires = tokenExpiration;
     await user.save();
 
-    const resetLink = `https://silk-route-backend.onrender.com/reset-password/${resetToken}`;
+    const resetLink = `https://silk-route-frontend.vercel.app/${resetToken}`;
 
     await sendResetEmail(user.email, resetLink);
 
@@ -58,7 +58,7 @@ const sendResetEmail = async (email, resetLink) => {
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background-color: #f9f9f9; padding: 40px; border-radius: 10px; box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);">
           <div style="background-color: #ffffff; padding: 30px; border-radius: 8px;">
             <div style="text-align: center;">
-              <img src="https://i.imghippo.com/files/3gqWV1727590046.jpg" alt="Silk Route Logo" style="width: 40px;  margin-bottom: 20px;" />
+              <img src="https://i.imghippo.com/files/3gqWV1727590046.jpg" alt="Silk Route Logo" style="width: 60px;  margin-bottom: 20px;" />
               <h2 style="color: #333; font-size: 24px; font-weight: bold; margin: 0;">Password Reset Request</h2>
               <p style="color: #666; font-size: 16px; margin: 20px 0;">We’re here to help you get back into your account.</p>
             </div>
@@ -87,7 +87,7 @@ const sendResetEmail = async (email, resetLink) => {
               <p style="font-size: 14px; color: #777;">
                 Best regards,<br />
                 <strong>Silk Route Team</strong><br />
-                By Ujjwal and Simran
+                By Ujjwal
               </p>
             </div>
           </div>

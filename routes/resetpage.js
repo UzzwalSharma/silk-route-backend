@@ -4,7 +4,7 @@ const router = express.Router();
 const User = require("../models/users");
 const bcrypt = require("bcrypt");
 
-router.post('/reset-password/:token', async (req, res) => {
+router.get('/reset-password/:token', async (req, res) => {
   const { token } = req.params;
   const { newPassword } = req.body;
 
