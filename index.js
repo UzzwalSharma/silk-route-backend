@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const path = require('path'); // Import path module
 require("dotenv").config();
 require("./db/connectDB");
 
@@ -22,7 +23,6 @@ app.use(cors({
     credentials: true,
 }));
 
-
 // Middlewares
 app.use(express.json()); // For parsing JSON
 app.use(express.urlencoded({ extended: true })); // For parsing URL-encoded data
@@ -41,6 +41,11 @@ app.use("/api/order", orderRoutes);
 app.use("/api/forgetpassword", forgotRoutes);
 app.use("/api/reset", resRoutes);
 app.use('/api/payment', payment); // Razorpay payment route
+
+// Catch-all route for handling React Router routes
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'frontend', 'build', 'index.html')); // Adjust the path to your build directory
+});
 
 app.listen(PORT, () => {
     console.log(`Server is running on PORT: ${PORT}`);

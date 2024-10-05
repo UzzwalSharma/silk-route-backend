@@ -28,7 +28,7 @@ router.post("/forgot-password", async (req, res) => {
     user.resetPasswordExpires = tokenExpiration;
     await user.save();
 
-    const resetLink = `https://silk-route-frontend.vercel.app/reset-password/${resetToken}`;
+   const resetLink = `https://silk-route-frontend.vercel.app/reset-password/${resetToken}`;
 
 
     await sendResetEmail(user.email, resetLink);
